@@ -14,97 +14,110 @@
     />
   </head>
   <body>
-    <h1>Buttons</h1>
-    <h2>Default</h2>
-    <wui-flex>
-      <wui-button label="Normal"></wui-button>
-      <wui-button label="Disabled" disabled></wui-button>
-      <wui-button label="W/Icon"
-        ><wui-icon slot="left-icon" greyscale>💖</wui-icon></wui-button
-      >
-    </wui-flex>
-    <h2>Primary</h2>
-    <wui-flex>
-      <wui-button label="Normal" variant="primary"></wui-button>
-      <wui-button label="Disabled" variant="primary" disabled></wui-button>
-      <wui-button label="W/Icon" variant="primary"
-        ><wui-icon slot="left-icon" greyscale>❔</wui-icon></wui-button
-      >
-    </wui-flex>
-    <h2>Secondary</h2>
-    <wui-flex>
-      <wui-button label="Normal" variant="secondary"></wui-button>
-      <wui-button label="Disabled" variant="secondary" disabled></wui-button>
-      <wui-button label="W/Icon" variant="secondary"
-        ><wui-icon slot="left-icon">★︎</wui-icon></wui-button
-      >
-    </wui-flex>
-    <h2>Neutral</h2>
-    <wui-flex>
-      <wui-button label="Normal" variant="Neutral"></wui-button>
-      <wui-button label="Disabled" variant="Neutral" disabled></wui-button>
-      <wui-button label="W/Icon" variant="Neutral"
-        ><wui-icon slot="left-icon">★︎</wui-icon></wui-button
-      >
-    </wui-flex>
-    <h2>Success</h2>
-    <wui-flex>
-      <wui-button label="Normal" variant="success"></wui-button>
-      <wui-button label="Disabled" variant="success" disabled></wui-button>
-      <wui-button label="W/Icon" variant="success"
-        ><wui-icon slot="left-icon">★︎</wui-icon></wui-button
-      >
-    </wui-flex>
-    <h2>Warning</h2>
-    <wui-flex>
-      <wui-button label="Normal" variant="warning"></wui-button>
-      <wui-button label="Disabled" variant="warning" disabled></wui-button>
-      <wui-button label="W/Icon" variant="warning"
-        ><wui-icon slot="left-icon">★︎</wui-icon></wui-button
-      >
-    </wui-flex>
-    <h2>Error</h2>
-    <wui-flex>
-      <wui-button label="Normal" variant="error"></wui-button>
-      <wui-button label="Disabled" variant="error" disabled></wui-button>
-      <wui-button label="W/Icon" variant="error"
-        ><wui-icon slot="left-icon">★︎</wui-icon></wui-button
-      >
-    </wui-flex>
+    <wui-flex inline direction="column" class="main">
+      <wui-h1>WUI-Components</wui-h1>
+      <wui-h2 underline>Typography</wui-h2>
+      <wui-flex direction="column">
+        <wui-h1>L1: The quick brown fox jumps over the lazy dog</wui-h1>
+        <wui-h2>L2: The quick brown fox jumps over the lazy dog</wui-h2>
+        <wui-h3>L3: The quick brown fox jumps over the lazy dog</wui-h3>
+        <wui-h4>L4: The quick brown fox jumps over the lazy dog</wui-h4>
+        <wui-h5>L5: The quick brown fox jumps over the lazy dog</wui-h5>
+        <wui-p>P: The quick brown fox jumps over the lazy dog</wui-p>
+      </wui-flex>
+      <wui-h2 underline>Buttons</wui-h2>
+      <wui-h3>Default</wui-h3>
+      <wui-flex>
+        <wui-button label="Normal"></wui-button>
+        <wui-button label="Disabled" disabled></wui-button>
+        <wui-button label="W/Icon"
+          ><wui-icon slot="left-icon" greyscale>💖</wui-icon></wui-button
+        >
+      </wui-flex>
+      <wui-h3>Primary</wui-h3>
+      <wui-flex>
+        <wui-button label="Normal" variant="primary"></wui-button>
+        <wui-button label="Disabled" variant="primary" disabled></wui-button>
+        <wui-button label="W/Icon" variant="primary"
+          ><wui-icon slot="left-icon" greyscale>❔</wui-icon>
+          <wui-icon slot="right-icon" greyscale>❔</wui-icon></wui-button
+        >
+      </wui-flex>
+      <wui-h3>Secondary</wui-h3>
+      <wui-flex>
+        <wui-button label="Normal" variant="secondary"></wui-button>
+        <wui-button label="Disabled" variant="secondary" disabled></wui-button>
+        <wui-button label="W/Icon" variant="secondary"
+          ><wui-icon slot="left-icon">★︎</wui-icon></wui-button
+        >
+      </wui-flex>
+      <wui-h3>Neutral</wui-h3>
+      <wui-flex>
+        <wui-button label="Normal" variant="Neutral"></wui-button>
+        <wui-button label="Disabled" variant="Neutral" disabled></wui-button>
+        <wui-button label="W/Icon" variant="Neutral"
+          ><wui-icon slot="left-icon">★︎</wui-icon></wui-button
+        >
+      </wui-flex>
+      <wui-h3>Success</wui-h3>
+      <wui-flex>
+        <wui-button label="Normal" variant="success"></wui-button>
+        <wui-button label="Disabled" variant="success" disabled></wui-button>
+        <wui-button label="W/Icon" variant="success"
+          ><wui-icon slot="left-icon">★︎</wui-icon></wui-button
+        >
+      </wui-flex>
+      <wui-h3>Warning</wui-h3>
+      <wui-flex>
+        <wui-button label="Normal" variant="warning"></wui-button>
+        <wui-button label="Disabled" variant="warning" disabled></wui-button>
+        <wui-button label="W/Icon" variant="warning"
+          ><wui-icon slot="left-icon">★︎</wui-icon></wui-button
+        >
+      </wui-flex>
+      <wui-h3>Error</wui-h3>
+      <wui-flex>
+        <wui-button label="Normal" variant="error"></wui-button>
+        <wui-button label="Disabled" variant="error" disabled></wui-button>
+        <wui-button label="W/Icon" variant="error"
+          ><wui-icon slot="left-icon">★︎</wui-icon></wui-button
+        >
+      </wui-flex>
 
-    <h1>Icons</h1>
-    <h2>Standard emoji</h2>
-    <wui-flex raised inline class="icon-list" style="font-size: 24px">
-      <wui-icon>🐘</wui-icon>
-      <wui-icon>🐧</wui-icon>
-      <wui-icon>🐼</wui-icon>
-      <wui-icon>💖</wui-icon>
-      <wui-icon>⭐</wui-icon>
-      <wui-icon>ℹ️</wui-icon>
-      <wui-icon>💀</wui-icon>
-      <wui-icon>👌</wui-icon>
-    </wui-flex>
-    <h2>Standard grayscale</h2>
-    <wui-flex raised inline class="icon-list" style="font-size: 24px">
-      <wui-icon grayscale>🐘</wui-icon>
-      <wui-icon grayscale>🐧</wui-icon>
-      <wui-icon grayscale>🐼</wui-icon>
-      <wui-icon grayscale>💖</wui-icon>
-      <wui-icon grayscale>⭐</wui-icon>
-      <wui-icon grayscale>ℹ️</wui-icon>
-      <wui-icon grayscale>💀</wui-icon>
-      <wui-icon grayscale>👌</wui-icon>
-    </wui-flex>
-    <h2>Text-mode emoji</h2>
-    <wui-flex raised inline class="icon-list" style="font-size: 24px">
-      <wui-icon>🐘︎</wui-icon>
-      <wui-icon>🐧︎</wui-icon>
-      <wui-icon>🐼︎</wui-icon>
-      <wui-icon>♥︎</wui-icon>
-      <wui-icon>★︎</wui-icon>
-      <wui-icon>ℹ︎</wui-icon>
-      <wui-icon>💀︎</wui-icon>
-      <wui-icon>👌︎</wui-icon>
+      <wui-h2 underline>Icons</wui-h2>
+      <wui-h3>Standard emoji</wui-h3>
+      <wui-flex raised inline class="icon-list">
+        <wui-icon>🐘</wui-icon>
+        <wui-icon>🐧</wui-icon>
+        <wui-icon>🐼</wui-icon>
+        <wui-icon>💖</wui-icon>
+        <wui-icon>⭐</wui-icon>
+        <wui-icon>ℹ️</wui-icon>
+        <wui-icon>💀</wui-icon>
+        <wui-icon>👌</wui-icon>
+      </wui-flex>
+      <wui-h3>Standard grayscale</wui-h3>
+      <wui-flex raised inline class="icon-list">
+        <wui-icon grayscale>🐘</wui-icon>
+        <wui-icon grayscale>🐧</wui-icon>
+        <wui-icon grayscale>🐼</wui-icon>
+        <wui-icon grayscale>💖</wui-icon>
+        <wui-icon grayscale>⭐</wui-icon>
+        <wui-icon grayscale>ℹ️</wui-icon>
+        <wui-icon grayscale>💀</wui-icon>
+        <wui-icon grayscale>👌</wui-icon>
+      </wui-flex>
+      <wui-h3>Text-mode emoji</wui-h3>
+      <wui-flex raised inline class="icon-list">
+        <wui-icon>🐘︎</wui-icon>
+        <wui-icon>🐧︎</wui-icon>
+        <wui-icon>🐼︎</wui-icon>
+        <wui-icon>♥︎</wui-icon>
+        <wui-icon>★︎</wui-icon>
+        <wui-icon>ℹ︎</wui-icon>
+        <wui-icon>💀︎</wui-icon>
+        <wui-icon>👌︎</wui-icon>
+      </wui-flex>
     </wui-flex>
   </body>
   <script type="module" src="index.ts"></script>

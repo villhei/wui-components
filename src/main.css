@@ -1,10 +1,12 @@
 html {
     --theme-font-size: 18px;
     --theme-font: 'Lato', sans-serif;
+    --theme-line-height: 1.33;
     --background-color: white;
     --text-color: black;
 
     --component-margin: 0.25rem;
+    --border-width-underline: 0.25rem;
 
     --primary-color-h: 200;
     --primary-color-s: 100%;
@@ -50,13 +52,14 @@ html {
 
 }
 
-button {
-    background-color: var(--primary-color);
-    padding: 1rem;
-    color: white;
-    font-size: 2em;
+body {
+    display: flex;
+    justify-content: center;
 }
-
+.main {
+    padding: 5rem 5rem;
+}
 .icon-list {
     max-width: 50%;
+    font-size: 24px;
 }
