@@ -1,0 +1,150 @@
+<style>
+  button {
+    outline: none;
+    border: none;
+    --greyscale-percentage: 100%;
+
+    --button-horizontal-padding-with-icon: 1.25rem;
+    --button-horizontal-padding-without-icon: 2.5rem;
+    --button-horizontal-padding: var(--button-horizontal-padding-without-icon);
+    --button-background-h: 0;
+    --button-background-s: 0%;
+    --button-background-l: 100%;
+    --button-background-color: hsl(
+      var(--button-background-h),
+      var(--button-background-s),
+      var(--button-background-l)
+    );
+
+    --button-hover-background-l: calc(
+      var(--button-background-l) - var(--hover-darken)
+    );
+    --button-hover-background-color: hsl(
+      var(--button-background-h),
+      var(--button-background-s),
+      var(--button-hover-background-l)
+    );
+
+    --button-hover-text-color-l: calc(
+      (var(--button-hover-background-l) - var(--contrast-threshold)) * -100
+    );
+    --button-hover-text-color: hsl(0, 0%, var(--button-hover-text-color-l));
+
+    --button-active-background-l: calc(
+      var(--button-background-l) - var(--active-darken)
+    );
+    --button-active-background-color: hsl(
+      var(--button-background-h),
+      var(--button-background-s),
+      var(--button-active-background-l)
+    );
+
+    --button-active-text-color-l: calc(
+      (var(--button-active-background-l) - var(--contrast-threshold)) * -100
+    );
+    --button-active-text-color: hsl(0, 0%, var(--button-active-text-color-l));
+
+    --button-border-color: var(--text-color);
+    --button-text-color-l: calc(
+      (var(--button-background-l) - var(--contrast-threshold)) * -100
+    );
+    --button-text-color: hsl(0, 0%, var(--button-text-color-l));
+    --button-border-width: 0.125rem;
+    --icon-color: var(--button-text-color);
+  }
+
+  button {
+    transition: background-color ease-in-out var(--transition-base),
+      border-color ease-in-out var(--transition-base);
+  }
+  button {
+    padding: 0.25rem var(--button-horizontal-padding);
+    height: 2.5rem;
+    margin: var(--component-margin);
+    box-sizing: border-box;
+    background: var(--button-background-color);
+    border-radius: 1.2rem;
+    border-width: var(--button-border-width);
+    border-style: solid;
+    border-color: var(--button-border-color);
+    color: var(--button-text-color);
+    font: var(--theme-font);
+    line-height: 1rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  button:is(
+      [variant="primary"],
+      [variant="secondary"],
+      [variant="neutral"],
+      [variant="success"],
+      [variant="warning"],
+      [variant="error"]
+    ) {
+    --button-border-color: var(--button-background-color);
+  }
+
+  button:is(
+      [variant="primary"],
+      [variant="secondary"],
+      [variant="neutral"],
+      [variant="success"],
+      [variant="warning"],
+      [variant="error"]
+    ):hover {
+    --button-border-color: var(--button-hover-background-color);
+  }
+
+  button:is(
+      [variant="primary"],
+      [variant="secondary"],
+      [variant="neutral"],
+      [variant="success"],
+      [variant="warning"],
+      [variant="error"]
+    ):active {
+    --button-border-color: var(--button-active-background-color);
+  }
+
+  button:hover:enabled {
+    background-color: var(--button-hover-background-color);
+    color: var(--button-hover-text-color);
+  }
+
+  button:active:enabled {
+    background-color: var(--button-active-background-color);
+  }
+
+  button:focus-visible:enabled {
+    outline: 0.125rem solid var(--primary-color);
+    outline-offset: 0.125rem;
+  }
+
+  button:disabled {
+    opacity: var(--disabled-background-opacity);
+    color: hsla(
+      0,
+      0%,
+      var(--button-text-color-l),
+      var(--disabled-text-opacity)
+    );
+    cursor: not-allowed;
+  }
+
+  ::slotted(*) {
+    margin-right: 0.25rem;
+  }
+
+  .label {
+    position: relative;
+    text-transform: uppercase;
+    line-height: 1.5rem;
+    height: 1.5rem;
+  }
+</style>
+<button>
+  <slot name="left-icon"></slot>
+  <span class="label">Default label</span>
+</button>

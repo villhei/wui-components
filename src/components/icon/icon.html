@@ -1,0 +1,27 @@
+<style>
+  .aligner {
+    --effective-icon-color: var(--icon-color, var(--text-color));
+    width: 1.5em;
+    height: 1.5em;
+    min-width: 1.5em;
+    min-height: 1.5em;
+    overflow: hidden;
+    display: inline-block;
+    color: var(--effective-icon-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+  }
+
+  .content {
+    filter: grayscale(var(--grayscale-percentage));
+    display: inline-block;
+    font-size: 1.2rem;
+    pointer-events: none;
+  }
+</style>
+
+<span class="aligner"
+  ><span class="content"><slot>⁉️</slot> </span></span
+>

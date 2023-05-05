@@ -1,0 +1,62 @@
+html {
+    --theme-font-size: 18px;
+    --theme-font: 'Lato', sans-serif;
+    --background-color: white;
+    --text-color: black;
+
+    --component-margin: 0.25rem;
+
+    --primary-color-h: 200;
+    --primary-color-s: 100%;
+    --primary-color-l: 47%;
+    --primary-color: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-l));
+
+    --secondary-color-h: 198;
+    --secondary-color-s: 100%;
+    --secondary-color-l: 23%;
+    --secondary-color: hsl(var(--secondary-color-h), var(--secondary-color-s), var(--secondary-color-l));
+
+    --neutral-color-h: 0;
+    --neutral-color-s: 0%;
+    --neutral-color-l: 67%;
+    --neutral-color: hsl(var(--neutral-color-h), var(--neutral-color-s), var(--neutral-color-l));
+
+    --success-color-h: 130;
+    --success-color-s: 48%;
+    --success-color-l: 45%;
+    --success-color: hsl(var(--success-color-h), var(--success-color-s), var(--success-color-l));
+
+    --warning-color-h: 30;
+    --warning-color-s: 100%;
+    --warning-color-l: 55%;
+    --warning-color: hsl(var(--warning-color-h), var(--warning-color-s), var(--warning-color-l));
+
+    --error-color-h: 1;
+    --error-color-s: 100%;
+    --error-color-l: 59%;
+    --error-color: hsl(var(--error-color-h), var(--error-color-s), var(--error-color-l));
+
+    --hover-darken: 8%;
+    --active-darken: 16%;
+    --small-shadow-opacity: 0.4;
+    --disabled-background-opacity: 0.4;
+    --disabled-text-opacity: 0.6;
+    --contrast-threshold: 70%;
+
+    --transition-base: 150ms;
+
+    font-size: var(--theme-font-size);
+    font-family: 'Lato', sans-serif;
+
+}
+
+button {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    color: white;
+    font-size: 2em;
+}
+
+.icon-list {
+    max-width: 50%;
+}
