@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Web UI components</title>
+    <link rel="stylesheet" href="colors.css" />
     <link rel="stylesheet" href="main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -83,7 +84,15 @@
           ><wui-icon slot="left-icon">★︎</wui-icon></wui-button
         >
       </wui-flex>
-
+      <wui-h2 underline>Form controls</wui-h2>
+      <wui-flex inline direction="column">
+        <wui-input label="Example input" name="standard"></wui-input>
+        <wui-input
+          label="Placeholder"
+          name="placeholder"
+          placeholder="Placeholder"
+        ></wui-input>
+      </wui-flex>
       <wui-h2 underline>Icons</wui-h2>
       <wui-h3>Standard emoji</wui-h3>
       <wui-flex raised inline class="icon-list">

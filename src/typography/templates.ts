@@ -24,6 +24,7 @@ const templates = range(1, 6).map((level) => {
           border-width: var(--border-width);
           border-color: var(--primary-color);
           padding-bottom: var(--padding-bottom);
+          color: var(--text-color);
       }
     </style>
       <${tagName}><slot>Foo</slot></${tagName}>

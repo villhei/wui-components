@@ -49,7 +49,7 @@
       (var(--button-background-l) - var(--contrast-threshold)) * -100
     );
     --button-text-color: hsl(0, 0%, var(--button-text-color-l));
-    --button-border-width: 0.125rem;
+    --button-border-width: var(--border-width);
     --icon-color: var(--button-text-color);
   }
 
@@ -118,8 +118,8 @@
   }
 
   button:focus-visible:enabled {
-    outline: 0.125rem solid var(--primary-color);
-    outline-offset: 0.125rem;
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
   }
 
   button:disabled {
