@@ -18,11 +18,11 @@ export class Flex extends WUIBase {
   }
 
   get inline() {
-    return this.getAttribute("inline") === "";
+    return this.getBoolean("inline");
   }
 
   get raised() {
-    return this.getAttribute("raised") === "";
+    return this.getBoolean("raised");
   }
 
   get classes() {

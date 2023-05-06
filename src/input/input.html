@@ -81,8 +81,36 @@
   label:has(+ input:invalid) {
     color: var(--warning-color);
   }
+
+  #message {
+    transition: max-height ease-in-out var(--transition-base);
+  }
+
+  #message {
+    max-height: unset;
+    font-size: 0.75rem;
+    margin: 0.5rem 0 0.5rem 0.125rem;
+  }
+
+  #message:empty {
+    max-height: 0;
+    display: none;
+  }
+
+  input:enabled:invalid + #message {
+    color: var(--warning-color);
+  }
+
+  input[variant="success"] + #message {
+    color: var(--success-color);
+  }
+
+  input[variant="error"] + #message {
+    color: var(--error-color);
+  }
 </style>
 <div>
   <label> </label>
   <input />
+  <p id="message"></p>
 </div>

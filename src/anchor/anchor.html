@@ -1,0 +1,26 @@
+<style>
+  a {
+    --anchor-hover-color-l: calc(var(--primary-color-l) - var(--hover-darken));
+    --anchor-hover-color: hsl(
+      var(--primary-color-h),
+      var(--primary-color-s),
+      var(--anchor-hover-color-l)
+    );
+  }
+  a {
+    transition: color ease-in-out var(--transition-base);
+  }
+  a {
+    color: var(--primary-color);
+  }
+  a:visited {
+    color: var(--primary-color);
+  }
+  a:hover {
+    color: var(--anchor-hover-color);
+  }
+</style>
+
+<a>
+  <slot></slot>
+</a>

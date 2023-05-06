@@ -11,15 +11,17 @@ export class Input extends WUIBase {
     super(template);
     this.inputNode = this.root.querySelector("input")!;
     this.labelNode = this.root.querySelector("label")!;
+    this.messageNode = this.root.querySelector("#message")!;
 
     this.update();
   }
 
   inputNode: HTMLInputElement;
   labelNode: HTMLLabelElement;
+  messageNode: HTMLElement;
 
   static get observedAttributes() {
-    return ["class", "label", "name", "disabled", "value", "type"];
+    return ["class", "label", "name", "disabled", "value", "type", "message"];
   }
 
   get label() {
@@ -31,7 +33,7 @@ export class Input extends WUIBase {
   }
 
   get disabled() {
-    return this.getAttribute("disabled") === "";
+    return this.getBoolean("disabled");
   }
 
   get placeholder() {
@@ -54,6 +56,10 @@ export class Input extends WUIBase {
     return this.getAttribute("variant") || "default";
   }
 
+  get message() {
+    return this.getAttribute("message");
+  }
+
   connectedCallback() {
     if (this.value) {
       this.inputNode.setAttribute("value", this.value);
@@ -69,22 +75,15 @@ export class Input extends WUIBase {
       this.labelNode.setAttribute("for", this.name);
       this.inputNode.setAttribute("name", this.name);
     }
-    if (this.placeholder) {
-      this.inputNode.setAttribute("placeholder", this.placeholder);
-    } else {
-      this.inputNode.removeAttribute("placeholder");
-    }
+    this.forwardAttribute("placeholder", this.inputNode);
+    this.forwardAttribute("disabled", this.inputNode);
+    this.forwardAttribute("type", this.inputNode);
+    this.forwardAttribute("variant", this.inputNode);
 
-    if (this.disabled) {
-      this.inputNode.setAttribute("disabled", "");
+    if (this.message) {
+      this.messageNode.textContent = this.message;
     } else {
-      this.inputNode.removeAttribute("disabled");
-    }
-    this.inputNode.setAttribute("type", this.type);
-    if (variants.includes(this.variant)) {
-      this.inputNode.setAttribute("variant", this.variant);
-    } else {
-      this.inputNode.removeAttribute("variant");
+      this.messageNode.textContent = "";
     }
   }
 }

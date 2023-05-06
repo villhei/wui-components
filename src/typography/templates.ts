@@ -9,9 +9,9 @@ const templates = range(1, 6).map((level) => {
 
   const template = document.createElement("template");
 
-  const fontSize = typeSizes[tagName] / 16;
+  const fontSize = typeSizes[tagName];
 
-  const margin = Math.max(0.5, fontSize * 0.3).toPrecision(3);
+  const margin = Math.max(1, fontSize * 0.4).toPrecision(3);
   template.innerHTML = `
     <style>
       ${tagName} {

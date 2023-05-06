@@ -29,10 +29,6 @@ export class Button extends WUIBase {
     this.setAttribute("label", value);
   }
 
-  get disabled() {
-    return this.getAttribute("disabled") === "";
-  }
-
   get variant() {
     return this.getAttribute("variant")?.toLowerCase();
   }
@@ -70,11 +66,9 @@ export class Button extends WUIBase {
       );
     }
     this.button.querySelector(".label")!.innerHTML = this.label;
-    if (this.disabled) {
-      this.button.setAttribute("disabled", "");
-    } else {
-      this.button.removeAttribute("disabled");
-    }
+
+    this.forwardAttribute("disabled", this.button);
+
     this.button.style.setProperty(
       "--button-horizontal-padding",
       this.hasIcon

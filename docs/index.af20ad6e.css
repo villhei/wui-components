@@ -2,36 +2,34 @@ html {
   --theme-font-size: 18px;
   --theme-font: "Lato", sans-serif;
   --theme-line-height: 1.33;
-  --border-width: 0.125rem;
+  --border-width: .125rem;
   --focus-outline: var(--border-width) solid var(--primary-color);
   --focus-outline-offset: var(--border-width);
-  --component-margin: 0.25rem;
-  --border-width-underline: 0.25rem;
-  --border-radius: 0.25rem;
-
+  --component-margin: .25rem;
+  --border-width-underline: .25rem;
+  --border-radius: .25rem;
   --hover-darken: 8%;
   --active-darken: 16%;
-  --small-shadow-opacity: 0.2;
-
-  --disabled-background-opacity: 0.4;
-  --disabled-text-opacity: 0.6;
+  --small-shadow-opacity: .2;
+  --disabled-background-opacity: .4;
+  --disabled-text-opacity: .6;
   --contrast-threshold: 70%;
-  --transition-base: 150ms;
-
+  --transition-base: .15s;
   --content-panel-padding: 1.5rem;
   --content-panel-margin: 1rem 1rem;
-
   font-size: var(--theme-font-size);
-  font-family: "Lato", sans-serif;
+  font-family: Lato, sans-serif;
 }
 
 body {
-  display: flex;
-  justify-content: center;
   background-color: var(--background-color-secondary);
+  justify-content: center;
+  display: flex;
 }
 
 .icon-list {
   max-width: 50%;
   font-size: 24px;
 }
+
+/*# sourceMappingURL=index.af20ad6e.css.map */

@@ -1,10 +1,10 @@
 export const typeSizes: Record<string, number> = {
-  h1: 50,
-  h2: 38,
-  h3: 28,
-  h4: 21,
-  h5: 12,
-  p: 16,
-  tooltip: 14,
-  small: 12,
+  h1: 3.125,
+  h2: 2.375,
+  h3: 1.75,
+  h4: 1.31,
+  h5: 1,
+  p: 1,
+  tooltip: 0.875,
+  small: 0.75,
 };
