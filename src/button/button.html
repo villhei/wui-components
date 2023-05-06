@@ -86,7 +86,7 @@
     --button-border-color: var(--button-background-color);
   }
 
-  button:is(
+  button:enabled:is(
       [variant="primary"],
       [variant="secondary"],
       [variant="neutral"],
@@ -97,7 +97,7 @@
     --button-border-color: var(--button-hover-background-color);
   }
 
-  button:is(
+  button:enabled:is(
       [variant="primary"],
       [variant="secondary"],
       [variant="neutral"],
@@ -131,6 +131,7 @@
       var(--disabled-text-opacity)
     );
     cursor: not-allowed;
+    pointer-events: visible;
   }
 
   ::slotted(*) {

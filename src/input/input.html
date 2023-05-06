@@ -5,6 +5,15 @@
     --input-focused-border-color: var(--primary-color);
   }
 
+  input {
+    transition: background-color ease-in-out var(--transition-base),
+      border-color ease-in-out var(--transition-base);
+  }
+
+  label {
+    transition: color ease-in-out var(--transition-base);
+  }
+
   div {
     display: inline-flex;
     flex-direction: column;
@@ -20,22 +29,57 @@
     border-style: solid;
   }
 
-  input:focus,
-  input:focus-visible {
-    border-color: var(--input-focused-border-color);
-    border-left-color: var(--input-focused-border-color);
-    border-top-color: var(--input-focused-border-color);
-    border-bottom-color: var(--input-focused-border-color);
-    border-right-color: var(--input-focused-border-color);
+  input:enabled:focus,
+  input:enabled:focus-visible {
+    outline-color: var(--input-focused-border-color);
+    outline-offset: 0;
   }
 
   input::placeholder {
     color: var(--input-placeholder-color);
   }
 
+  input:disabled {
+    cursor: not-allowed;
+    background-color: var(--grey-shade-5);
+    color: var(--text-color-disabled);
+  }
+
+  input:enabled:invalid {
+    border: var(--border-width) solid var(--warning-color);
+  }
+
+  input[variant="error"]:enabled {
+    border: var(--border-width) solid var(--error-color);
+  }
+
+  input[variant="success"]:enabled {
+    border: var(--border-width) solid var(--success-color);
+  }
+
   label {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
+  }
+
+  label:has(+ input:disabled) {
+    color: var(--text-color-disabled);
+  }
+
+  label:has(+ input:enabled:focus) {
+    color: var(--primary-color);
+  }
+
+  label:has(+ input[variant="error"]:enabled:not(:focus)) {
+    color: var(--error-color);
+  }
+
+  label:has(+ input[variant="success"]:enabled:not(:focus)) {
+    color: var(--success-color);
+  }
+
+  label:has(+ input:invalid) {
+    color: var(--warning-color);
   }
 </style>
 <div>

@@ -1,0 +1,45 @@
+html {
+  --grey-shade-0-l: 0%;
+  --grey-shade-1-l: 19%;
+  --grey-shade-2-l: 33%;
+  --grey-shade-3-l: 67%;
+  --grey-shade-4-l: 86%;
+  --grey-shade-5-l: 95%;
+  --grey-shade-h: 0;
+  --grey-shade-s: 0%;
+  --grey-shade-0: hsl(var(--grey-shade-h), var(--grey-shade-s), var(--grey-shade-0-l));
+  --grey-shade-1: hsl(var(--grey-shade-h), var(--grey-shade-s), var(--grey-shade-1-l));
+  --grey-shade-2: hsl(var(--grey-shade-h), var(--grey-shade-s), var(--grey-shade-2-l));
+  --grey-shade-3: hsl(var(--grey-shade-h), var(--grey-shade-s), var(--grey-shade-3-l));
+  --grey-shade-4: hsl(var(--grey-shade-h), var(--grey-shade-s), var(--grey-shade-4-l));
+  --grey-shade-5: hsl(var(--grey-shade-h), var(--grey-shade-s), var(--grey-shade-5-l));
+  --background-color: var(--grey-shade-0);
+  --text-color: #22252a;
+  --text-color-disabled: hsla(218, 11%, 15%, var(--disabled-text-opacity));
+  --primary-color-h: 200;
+  --primary-color-s: 100%;
+  --primary-color-l: 47%;
+  --primary-color: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-l));
+  --secondary-color-h: 198;
+  --secondary-color-s: 100%;
+  --secondary-color-l: 23%;
+  --secondary-color: hsl(var(--secondary-color-h), var(--secondary-color-s), var(--secondary-color-l));
+  --neutral-color-h: 0;
+  --neutral-color-s: 0%;
+  --neutral-color-l: var(--grey-shade-3-l);
+  --neutral-color: hsl(var(--neutral-color-h), var(--neutral-color-s), var(--neutral-color-l));
+  --success-color-h: 130;
+  --success-color-s: 48%;
+  --success-color-l: 45%;
+  --success-color: hsl(var(--success-color-h), var(--success-color-s), var(--success-color-l));
+  --warning-color-h: 30;
+  --warning-color-s: 100%;
+  --warning-color-l: 55%;
+  --warning-color: hsl(var(--warning-color-h), var(--warning-color-s), var(--warning-color-l));
+  --error-color-h: 1;
+  --error-color-s: 100%;
+  --error-color-l: 59%;
+  --error-color: hsl(var(--error-color-h), var(--error-color-s), var(--error-color-l));
+}
+
+/*# sourceMappingURL=index.96894c7d.css.map */

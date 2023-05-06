@@ -14,7 +14,7 @@ export class Flex extends WUIBase {
 
   rootNode: HTMLDivElement;
   static get observedAttributes() {
-    return ["class", "raised", "inline", "direction"];
+    return ["class", "raised", "inline", "direction", "wrap"];
   }
 
   get inline() {
@@ -33,8 +33,14 @@ export class Flex extends WUIBase {
     return this.getAttribute("direction") || "row";
   }
 
+  get wrap() {
+    return this.getAttribute("wrap") || "nowrap";
+  }
+
   update() {
     this.rootNode.style.setProperty("--flex-direction", this.direction);
+    this.rootNode.style.setProperty("--flex-wrap", this.wrap);
+
     if (this.raised) {
       this.rootNode.classList.add("raised");
     } else {

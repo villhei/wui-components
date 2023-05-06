@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "setup": "cp scripts/pre-commit .git/hooks/ && chmod +x .git/hooks/pre-commit && echo 'Git hooks set'",
-    "clean": "rm dist/*",
+    "clean": "rm dist/* && rm -rf docs && mkdir docs",
     "build": "npm run clean && parcel build --public-url . src/index.html && cp dist/* docs",
     "dev": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",

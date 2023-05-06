@@ -85,12 +85,41 @@
         >
       </wui-flex>
       <wui-h2 underline>Form controls</wui-h2>
-      <wui-flex inline direction="column">
+      <wui-flex inline direction="row" wrap="wrap">
         <wui-input label="Example input" name="standard"></wui-input>
+        <wui-input
+          label="Filled input"
+          name="filled"
+          value="Some value"
+        ></wui-input>
         <wui-input
           label="Placeholder"
           name="placeholder"
           placeholder="Placeholder"
+        ></wui-input>
+        <wui-input
+          label="Disabled"
+          name="disabled"
+          value="Value"
+          disabled
+        ></wui-input>
+        <wui-input
+          label="Warning"
+          name="invalid"
+          type="email"
+          value="invalid-value"
+        ></wui-input>
+        <wui-input
+          label="Success"
+          name="success"
+          variant="success"
+          value="Some value"
+        ></wui-input>
+        <wui-input
+          label="Error"
+          name="error"
+          variant="error"
+          value="Cause of error"
         ></wui-input>
       </wui-flex>
       <wui-h2 underline>Icons</wui-h2>
