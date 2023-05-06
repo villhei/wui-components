@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "index.js",
   "scripts": {
+    "setup": "cp scripts/pre-commit .git/hooks/ && chmod +x .git/hooks/pre-commit && echo 'Git hooks set'",
+    "clean": "rm dist/*",
+    "build": "npm run clean && parcel build --public-url . src/index.html && cp dist/* docs",
     "dev": "parcel src/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "rm -r docs && yarn build:github && git add docs && git commit -m \"Update release\""
   },
   "author": "",
   "license": "ISC",
