@@ -1,4 +1,4 @@
-import templateContent from "bundle-text:./input.html";
+import templateContent from "./input.html?raw";
 import { WUIBase } from "../core";
 
 const template = document.createElement("template");

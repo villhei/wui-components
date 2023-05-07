@@ -1,5 +1,4 @@
-import templateContentParagraph from "bundle-text:./paragraph.html";
-import { WUIBase } from "../core";
+import templateContentParagraph from "./paragraph.html?raw";
 
 import { range } from "../utils/range";
 import { typeSizes } from "./constants";

@@ -1,4 +1,4 @@
-import templateContent from "bundle-text:./flex.html";
+import templateContent from "./flex.html?raw";
 import { WUIBase } from "../core";
 
 const template = document.createElement("template");

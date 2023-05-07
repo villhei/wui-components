@@ -1,4 +1,4 @@
-import templateContent from "bundle-text:./anchor.html";
+import templateContent from "./anchor.html?raw";
 import { WUIBase } from "../core";
 
 const template = document.createElement("template");
