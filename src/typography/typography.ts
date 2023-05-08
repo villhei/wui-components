@@ -1,4 +1,4 @@
-import { WUIBase } from "../core";
+import { ColorKeyword, WUIBase, colorKeywords } from "../core";
 import { templateMap } from "./templates";
 
 export class Typography extends WUIBase {
@@ -10,11 +10,15 @@ export class Typography extends WUIBase {
   tag: HTMLHeadingElement;
 
   static get observedAttributes() {
-    return ["underline"];
+    return ["underline", "color"];
   }
 
   get underline() {
     return this.getAttribute("underline") === "";
+  }
+
+  get color() {
+    return this.getAttribute("color");
   }
 
   update() {
@@ -29,6 +33,13 @@ export class Typography extends WUIBase {
       );
     } else {
       this.tag.style.setProperty("--border-width", "0");
+    }
+    if (this.color) {
+      const colorValue = this.color;
+      const color = colorKeywords.includes(colorValue as ColorKeyword)
+        ? `var(--${colorValue}-color)`
+        : colorValue;
+      this.tag.style.setProperty("--font-color", color);
     }
   }
 }

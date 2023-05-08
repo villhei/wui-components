@@ -6,6 +6,7 @@ exports[`Flex should match snapshot 1`] = `
     display: flex;
     flex-direction: var(--flex-direction);
     flex-wrap: var(--flex-wrap);
+    position: var(--position);
   }
 
   .inline-flex {
@@ -23,6 +24,6 @@ exports[`Flex should match snapshot 1`] = `
     background-color: var(--background-color);
   }
 </style>
-<div style="--flex-direction: row; --flex-wrap: nowrap;" class="flex"><slot></slot></div>
+<div style="--flex-direction: row; --flex-wrap: nowrap; --position: null;" class="flex"><slot></slot></div>
 "
 `;

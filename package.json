@@ -6,7 +6,7 @@
   "scripts": {
     "setup": "cp scripts/pre-commit .git/hooks/ && chmod +x .git/hooks/pre-commit && echo 'Git hooks set'",
     "clean": "rm -rf dist/* && rm -rf docs/* && mkdir -p docs && mkdir -p dist",
-    "build": "npm run clean && vite build && cp -r dist/* docs",
+    "build": "npm run clean && vite build --base=./ && cp -r dist/* docs",
     "dev": "vite",
     "test": "jest",
     "release": "rm -r docs && yarn build:github && git add docs && git commit -m \"Update release\""

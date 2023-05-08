@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flex should match snapshot 1`] = `
+"<style>
+  input {
+    --input-inactive-border-color: var(--grey-shade-4);
+    --input-placeholder-color: var(--grey-shade-4);
+    --input-focused-border-color: var(--primary-color);
+  }
+
+  input {
+    transition: background-color ease-in-out var(--transition-base),
+      border-color ease-in-out var(--transition-base);
+  }
+
+  label {
+    transition: color ease-in-out var(--transition-base);
+  }
+
+  div {
+    display: inline-flex;
+    flex-direction: column;
+    margin: var(--component-margin);
+  }
+
+  input {
+    border-radius: var(--border-radius);
+    font-size: var(--font-size);
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
+    border-color: var(--input-inactive-border-color);
+    border-style: solid;
+  }
+
+  input:enabled:focus,
+  input:enabled:focus-visible {
+    outline-color: var(--input-focused-border-color);
+    outline-offset: 0;
+  }
+
+  input::placeholder {
+    color: var(--input-placeholder-color);
+  }
+
+  input:disabled {
+    cursor: not-allowed;
+    background-color: var(--grey-shade-5);
+    color: var(--text-color-disabled);
+  }
+
+  input:enabled:invalid {
+    border: var(--border-width) solid var(--warning-color);
+  }
+
+  input[variant="error"]:enabled {
+    border: var(--border-width) solid var(--error-color);
+  }
+
+  input[variant="success"]:enabled {
+    border: var(--border-width) solid var(--success-color);
+  }
+
+  label {
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  label:has(+ input:disabled) {
+    color: var(--text-color-disabled);
+  }
+
+  label:has(+ input:enabled:focus) {
+    color: var(--primary-color);
+  }
+
+  label:has(+ input[variant="error"]:enabled:not(:focus)) {
+    color: var(--error-color);
+  }
+
+  label:has(+ input[variant="success"]:enabled:not(:focus)) {
+    color: var(--success-color);
+  }
+
+  label:has(+ input:invalid) {
+    color: var(--warning-color);
+  }
+
+  #message {
+    transition: max-height ease-in-out var(--transition-base);
+  }
+
+  #message {
+    max-height: unset;
+    font-size: 0.75rem;
+    margin: 0.5rem 0 0.5rem 0.125rem;
+  }
+
+  #message:empty {
+    max-height: 0;
+    display: none;
+  }
+
+  input:enabled:invalid + #message {
+    color: var(--warning-color);
+  }
+
+  input[variant="success"] + #message {
+    color: var(--success-color);
+  }
+
+  input[variant="error"] + #message {
+    color: var(--error-color);
+  }
+</style>
+<div>
+  <label></label>
+  <input>
+  <p id="message"></p>
+</div>
+"
+`;

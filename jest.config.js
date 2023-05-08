@@ -6,4 +6,5 @@ export default {
     ".*\\.html$": "./transformer.js",
   },
   resolver: "<rootDir>/resolver.cjs",
+  setupFilesAfterEnv: ["<rootDir>/jest-setup.ts"],
 };

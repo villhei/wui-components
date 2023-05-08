@@ -10,6 +10,7 @@ See [live demo](https://villhei.github.io/wui-components/)
 - [x] Zero dependencies, 100% standard web
 - [x] POC Button component
 - [x] POC theming system
+- [x] POC test set
 - [x] [Live demo](https://villhei.github.io/wui-components/)
 - [ ] POC Integrated theme editor
 - [ ] Full implementation of Ton Hanchai's [Minimalist Design System](https://www.figma.com/community/file/994442968998465538/Minimalist-Design-System)
@@ -40,6 +41,12 @@ Start the development mode
 
 ```bash
 yarn dev
+```
+
+Run tests
+
+```bash
+yarn test
 ```
 
 Setup the release script
