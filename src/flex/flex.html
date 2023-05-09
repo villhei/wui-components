@@ -1,24 +1,8 @@
 <style>
-  .flex {
-    display: flex;
+  :host {
+    display: var(--flex-display);
     flex-direction: var(--flex-direction);
     flex-wrap: var(--flex-wrap);
-    position: var(--position);
-  }
-
-  .inline-flex {
-    display: inline-flex;
-    flex-direction: var(--flex-direction);
-    flex-wrap: var(--flex-wrap);
-  }
-
-  .raised {
-    padding: var(--content-panel-padding);
-    margin: var(--content-panel-margin);
-
-    box-shadow: 0 0 0.25rem hsla(0, 0%, 0%, var(--small-shadow-opacity));
-    border-radius: var(--border-radius);
-    background-color: var(--background-color);
   }
 </style>
-<div><slot></slot></div>
+<slot></slot>

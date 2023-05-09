@@ -8,13 +8,11 @@ template.innerHTML = templateContent;
 export class Flex extends WUIBase {
   constructor() {
     super(template);
-    this.rootNode = this.root.querySelector("div")!;
     this.update();
   }
 
-  rootNode: HTMLDivElement;
   static get observedAttributes() {
-    return ["class", "raised", "inline", "direction", "wrap", "position"];
+    return ["raised", "inline", "direction", "wrap", "position"];
   }
 
   get inline() {
@@ -23,10 +21,6 @@ export class Flex extends WUIBase {
 
   get raised() {
     return this.getBoolean("raised");
-  }
-
-  get classes() {
-    return this.getAttribute("class")?.split(",") || [];
   }
 
   get direction() {
@@ -42,23 +36,20 @@ export class Flex extends WUIBase {
   }
 
   update() {
-    this.rootNode.style.setProperty("--flex-direction", this.direction);
-    this.rootNode.style.setProperty("--flex-wrap", this.wrap);
-    this.rootNode.style.setProperty("--position", this.position);
+    if (this.inline) {
+      this.style.setProperty("--flex-display", "inline-flex");
+    } else {
+      this.style.setProperty("--flex-display", "flex");
+    }
+
+    this.style.setProperty("--flex-direction", this.direction);
+    this.style.setProperty("--flex-wrap", this.wrap);
+    this.style.setProperty("--position", this.position);
 
     if (this.raised) {
-      this.rootNode.classList.add("raised");
+      this.classList.add("__wui-raised");
     } else {
-      this.rootNode.classList.remove("raised");
+      this.classList.remove("__wui-raised");
     }
-    if (this.inline) {
-      this.rootNode.classList.add("inline-flex");
-      this.rootNode.classList.remove("flex");
-    } else {
-      this.rootNode.classList.remove("inline-flex");
-      this.rootNode.classList.add("flex");
-    }
-
-    this.classes.forEach((className) => this.rootNode.classList.add(className));
   }
 }

@@ -7,6 +7,8 @@
     <title>Web UI components</title>
     <link rel="stylesheet" href="./src/colors.css" />
     <link rel="stylesheet" href="./src/main.css" />
+    <script type="module" src="./src/index.ts"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -163,44 +165,54 @@
       <wui-flex raised direction="column">
         <wui-h2 underline>Form controls</wui-h2>
         <wui-h3>Input</wui-h3>
-        <wui-flex inline direction="row" wrap="wrap">
-          <wui-input label="Example input" name="standard"></wui-input>
+        <wui-flex inline direction="row" wrap="wrap" class="component-list">
+          <wui-input label="Default input" name="input-default"></wui-input>
           <wui-input
             label="Filled input"
-            name="filled"
+            name="input-filled"
             value="Some value"
           ></wui-input>
           <wui-input
             label="Placeholder"
-            name="placeholder"
+            name="input-placeholder"
             placeholder="Placeholder"
           ></wui-input>
           <wui-input
             label="Disabled"
-            name="disabled"
+            name="input-disabled"
             value="Value"
             disabled
           ></wui-input>
           <wui-input
+            label="Read-only"
+            name="input-readonly"
+            value="Value"
+            readonly
+          ></wui-input>
+          <wui-input
             label="Warning"
-            name="invalid"
+            name="input-invalid"
             type="email"
             value="invalid-value"
             message="Invalid email"
           ></wui-input>
           <wui-input
             label="Success"
-            name="success"
+            name="input-success"
             variant="success"
             value="Some value"
           ></wui-input>
           <wui-input
             label="Error"
-            name="error"
+            name="input-error"
             variant="error"
             value="Cause of error"
             message="Reason of error"
           ></wui-input>
+        </wui-flex>
+        <wui-h3>Slider</wui-h3>
+        <wui-flex inline direction="row" wrap="wrap" class="component-list">
+          <wui-slider name="Slider-default"></wui-slider>
         </wui-flex>
       </wui-flex>
       <wui-flex raised direction="column">
@@ -240,6 +252,11 @@
         </wui-flex>
       </wui-flex>
     </wui-flex>
+    <script type="text/javascript">
+      addEventListener("load", () => {
+        const body = document.querySelector("body");
+        body.style.setProperty("opacity", 1);
+      });
+    </script>
   </body>
-  <script type="module" src="./src/index.ts"></script>
 </html>

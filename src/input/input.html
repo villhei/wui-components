@@ -14,10 +14,11 @@
     transition: color ease-in-out var(--transition-base);
   }
 
-  div {
+  :host {
     display: inline-flex;
     flex-direction: column;
-    margin: var(--component-margin);
+    padding: var(--component-padding);
+    width: calc(100% - var(--component-padding) * 2);
   }
 
   input {
@@ -31,8 +32,8 @@
 
   input:enabled:focus,
   input:enabled:focus-visible {
-    outline-color: var(--input-focused-border-color);
-    outline-offset: 0;
+    border-color: var(--input-focused-border-color);
+    outline: none;
   }
 
   input::placeholder {
@@ -42,6 +43,13 @@
   input:disabled {
     cursor: not-allowed;
     background-color: var(--grey-shade-5);
+    color: var(--text-color-disabled);
+  }
+
+  input:enabled:read-only {
+    font-style: italic;
+    border-color: var(--input-inactive-border-color);
+    background-color: var(--background-color);
     color: var(--text-color-disabled);
   }
 
@@ -60,6 +68,10 @@
   label {
     margin-bottom: 0.5rem;
     text-transform: uppercase;
+  }
+
+  label:has(+ input:enabled:read-only:focus) {
+    color: var(--text-color);
   }
 
   label:has(+ input:disabled) {
@@ -109,8 +121,6 @@
     color: var(--error-color);
   }
 </style>
-<div>
-  <label> </label>
-  <input />
-  <p id="message"></p>
-</div>
+<label> </label>
+<input />
+<p id="message"></p>

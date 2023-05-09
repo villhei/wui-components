@@ -9,8 +9,14 @@ export class WUIBase extends HTMLElement {
   }
   root: ShadowRoot;
 
-  attributeChangedCallback() {
-    this.update();
+  attributeChangedCallback(
+    attribute: string,
+    previousValue: string | null,
+    currentvalue: string | null
+  ) {
+    if (previousValue !== currentvalue) {
+      this.update();
+    }
   }
 
   getBoolean(attribute: string): boolean {
