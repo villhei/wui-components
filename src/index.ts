@@ -4,11 +4,11 @@ import { Flex } from "./flex";
 import { Icon } from "./icon";
 import { Input } from "./input";
 import { Slider } from "./slider";
-import coreCSs from "./core/core.css?raw";
+import coreCSS from "./core/core.css?raw";
 import { H1, H2, H3, H4, H5, Paragraph } from "./typography";
 
 const style = document.createElement("style");
-style.textContent = coreCSs;
+style.textContent = coreCSS;
 document.head.append(style);
 
 customElements.define("wui-a", Anchor);

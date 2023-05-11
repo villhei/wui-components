@@ -1,4 +1,4 @@
-import { Flex } from "./flex";
+import { Flex } from "./Flex";
 customElements.define("wui-flex", Flex);
 
 describe("Flex", () => {

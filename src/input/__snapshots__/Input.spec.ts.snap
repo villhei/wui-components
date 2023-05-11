@@ -2,7 +2,7 @@
 
 exports[`should match snapshot 1`] = `
 "<style>
-  input {
+  :host {
     --input-inactive-border-color: var(--grey-shade-4);
     --input-placeholder-color: var(--grey-shade-4);
     --input-focused-border-color: var(--primary-color);
@@ -112,6 +112,7 @@ exports[`should match snapshot 1`] = `
     display: none;
   }
 
+  input[variant="warning"],
   input:enabled:invalid + #message {
     color: var(--warning-color);
   }
@@ -124,8 +125,8 @@ exports[`should match snapshot 1`] = `
     color: var(--error-color);
   }
 </style>
-<label></label>
-<input>
+<label for="Test"></label>
+<input name="Test">
 <p id="message"></p>
 "
 `;

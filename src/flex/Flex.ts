@@ -1,11 +1,11 @@
-import templateContent from "./flex.html?raw";
-import { WUIBase } from "../core";
+import templateContent from "./Flex.html?raw";
+import { BaseComponent } from "../core";
 
 const template = document.createElement("template");
 
 template.innerHTML = templateContent;
 
-export class Flex extends WUIBase {
+export class Flex extends BaseComponent {
   constructor() {
     super(template);
     this.update();

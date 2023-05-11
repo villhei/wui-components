@@ -1,11 +1,11 @@
 import templateContent from "./icon.html?raw";
-import { WUIBase } from "../core";
+import { BaseComponent } from "../core";
 
 const template = document.createElement("template");
 
 template.innerHTML = templateContent;
 
-export class Icon extends WUIBase {
+export class Icon extends BaseComponent {
   constructor() {
     super(template);
 

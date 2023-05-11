@@ -1,10 +1,10 @@
-import templateContent from "./anchor.html?raw";
-import { WUIBase } from "../core";
+import templateContent from "./Anchor.html?raw";
+import { BaseComponent } from "../core";
 
 const template = document.createElement("template");
 template.innerHTML = templateContent;
 
-export class Anchor extends WUIBase {
+export class Anchor extends BaseComponent {
   constructor() {
     super(template);
     this.anchorNode = this.root.querySelector("a")!;

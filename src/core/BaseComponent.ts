@@ -1,4 +1,4 @@
-export class WUIBase extends HTMLElement {
+export class BaseComponent extends HTMLElement {
   constructor(template: HTMLTemplateElement) {
     super();
     const shadowRoot = this.attachShadow({
@@ -10,7 +10,7 @@ export class WUIBase extends HTMLElement {
   root: ShadowRoot;
 
   attributeChangedCallback(
-    attribute: string,
+    _attribute: string,
     previousValue: string | null,
     currentvalue: string | null
   ) {

@@ -17,6 +17,7 @@ export class Paragraph extends Typography {
   }
 
   update() {
+    super.update();
     if (this.small) {
       this.pNode.style.setProperty("--font-size", `${typeSizes.small}rem`);
     } else {

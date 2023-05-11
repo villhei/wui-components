@@ -1,0 +1,224 @@
+<style>
+  :host {
+    --input-focused-border-color: var(--primary-color);
+    --font-size: var(--font-size);
+    --component-padding: 0.5rem;
+    --inactive-background: var(--grey-shade-3);
+    --active-background: var(--grey-shade-2);
+    --enabled-thumb-color: var(--grey-shade-2);
+    --tooltip-opacity: 0;
+  }
+
+  input:enabled:focus {
+    --enabled-thumb-color: var(--primary-color);
+  }
+
+  input[variant="success"]:enabled:not(:focus) {
+    --active-background: var(--success-color);
+  }
+
+  input[variant="success"]:enabled:not(:focus)::-webkit-slider-thumb {
+    --enabled-thumb-color: var(--success-color);
+  }
+
+  input[variant="warning"]:enabled:not(:focus) {
+    --active-background: var(--warning-color);
+  }
+
+  input[variant="warning"]:enabled:not(:focus)::-webkit-slider-thumb {
+    --enabled-thumb-color: var(--warning-color);
+  }
+
+  input[variant="error"]:enabled:not(:focus) {
+    --active-background: var(--error-color);
+  }
+
+  input[variant="error"]:enabled:not(:focus)::-webkit-slider-thumb {
+    --enabled-thumb-color: var(--error-color);
+  }
+
+  input {
+    appearance: none;
+    display: inline-block;
+    height: 0.25rem;
+    background: #ccc;
+    border-radius: 0.125rem;
+    margin: 0 var(--component-padding);
+  }
+
+  input {
+    transition: background-color ease-in-out var(--transition-base),
+      border-color ease-in-out var(--transition-base);
+
+    border-radius: 16px;
+  }
+
+  label {
+    transition: color ease-in-out var(--transition-base);
+  }
+
+  input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    transition: background-color ease-in-out var(--transition-base);
+  }
+
+  input::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--enabled-thumb-color);
+    cursor: pointer;
+  }
+
+  input::-webkit-slider-thumb {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--enabled-thumb-color);
+    cursor: pointer;
+  }
+
+  input[readonly=""]:enabled:focus-visible::-webkit-slider-thumb {
+    background: var(--inactive-background);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  input[readonly=""]:enabled:focus::-webkit-slider-thumb {
+    background: var(--enabled-thumb-color);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  input:disabled::-webkit-slider-thumb {
+    background: var(--inactive-background);
+  }
+
+  input:enabled:focus,
+  input:enabled:focus-visible {
+    --active-background: var(--primary-color);
+    outline-offset: var(--focus-outline-offset);
+    outline: var(--focus-outline);
+    --tooltip-opacity: 1;
+  }
+
+  label {
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  label:has(+ div > div > input:disabled) {
+    color: var(--text-color-disabled);
+  }
+
+  label:has(+ div > div > input:enabled:focus) {
+    color: var(--primary-color);
+  }
+
+  label:has(+ div > div > input[variant="success"]:not(:focus)) {
+    color: var(--success-color);
+  }
+  label:has(+ div > div > input[variant="warning"]:not(:focus)) {
+    color: var(--warning-color);
+  }
+
+  label:has(+ div > div > input[variant="error"]:not(:focus)) {
+    color: var(--error-color);
+  }
+
+  #message {
+    transition: max-height ease-in-out var(--transition-base);
+  }
+
+  #message {
+    max-height: unset;
+    font-size: 0.75rem;
+    margin: 0.5rem 0 0.5rem 0.125rem;
+  }
+
+  div:has(input[variant="warning"]) + #message {
+    color: var(--warning-color);
+  }
+
+  div:has(input[variant="success"]) + #message {
+    color: var(--success-color);
+  }
+
+  div:has(input[variant="error"]) + #message {
+    color: var(--error-color);
+  }
+
+  .layer:has(input:focus) + .tooltip-aligner {
+    --tooltip-opacity: 1;
+  }
+
+  #message:empty {
+    max-height: 0;
+    display: none;
+  }
+
+  :host {
+    display: inline-flex;
+    flex-direction: column;
+    padding: var(--component-padding);
+  }
+
+  .container {
+    position: relative;
+    height: 0.75rem;
+    display: flex;
+  }
+
+  .layer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  #tooltip {
+    opacity: var(--tooltip-opacity);
+    position: absolute;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    top: -1rem;
+    left: 50%;
+    margin-left: -0.75rem;
+    margin-top: -1.5rem;
+    color: var(--background-color);
+    background-color: var(--grey-shade-2);
+  }
+
+  .tooltip-aligner {
+    position: absolute;
+    margin-left: 2.25rem;
+    margin-right: 2.25rem;
+    width: calc(100% - 3 * var(--component-padding) - (2 * 2.25rem));
+  }
+
+  div > input {
+    flex: 1;
+  }
+
+  span {
+    color: var(--text-color);
+    min-width: 2rem;
+    font-size: 0.75rem;
+  }
+</style>
+<label></label>
+<div class="container">
+  <div class="layer">
+    <span>0%</span>
+    <input type="range" />
+    <span>100%</span>
+  </div>
+  <div class="tooltip-aligner">
+    <div id="tooltip">42</div>
+  </div>
+</div>
+<p id="message"></p>

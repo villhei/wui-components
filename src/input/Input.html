@@ -1,5 +1,5 @@
 <style>
-  input {
+  :host {
     --input-inactive-border-color: var(--grey-shade-4);
     --input-placeholder-color: var(--grey-shade-4);
     --input-focused-border-color: var(--primary-color);
@@ -109,6 +109,7 @@
     display: none;
   }
 
+  input[variant="warning"],
   input:enabled:invalid + #message {
     color: var(--warning-color);
   }
@@ -121,6 +122,6 @@
     color: var(--error-color);
   }
 </style>
-<label> </label>
+<label></label>
 <input />
 <p id="message"></p>

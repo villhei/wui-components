@@ -1,2 +1,3 @@
 export * from "./constants";
-export * from "./wuiBase";
+export * from "./BaseComponent";
+export * from "./FormComponent";

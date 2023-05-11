@@ -1,11 +1,11 @@
-import templateContent from "./button.html?raw";
-import { WUIBase } from "../core";
+import templateContent from "./Button.html?raw";
+import { BaseComponent } from "../core";
 
 const template = document.createElement("template");
 
 template.innerHTML = templateContent;
 
-export class Button extends WUIBase {
+export class Button extends BaseComponent {
   constructor() {
     super(template);
     this.button = this.root.querySelector("button")!;
