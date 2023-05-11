@@ -212,7 +212,50 @@
         </wui-flex>
         <wui-h3>Slider</wui-h3>
         <wui-flex inline direction="row" wrap="wrap" class="component-list">
-          <wui-slider name="Slider-default"></wui-slider>
+          <wui-slider name="slider-default" label="Default"></wui-slider>
+          <wui-slider
+            name="slider-range"
+            min="20"
+            max="40"
+            value="30"
+            label="Range 20-40"
+          ></wui-slider>
+          <wui-slider
+            name="slider-fractional-steps"
+            min="0"
+            max="10"
+            step="0.1"
+            value="0"
+            label="Fractional steps"
+          ></wui-slider>
+          <wui-slider
+            min="0"
+            max="10"
+            value="10"
+            label="Disabled"
+            name="slider-disabled"
+            disabled
+          ></wui-slider>
+
+          <wui-slider
+            label="Warning"
+            name="slider-warning"
+            variant="warning"
+            message="Maybe a validation error?"
+          ></wui-slider>
+          <wui-slider
+            label="Success"
+            name="slider-success"
+            variant="success"
+            value="50"
+          ></wui-slider>
+          <wui-slider
+            label="Error"
+            name="slider-error"
+            variant="error"
+            value="666"
+            message="Reason of error"
+          ></wui-slider>
         </wui-flex>
       </wui-flex>
       <wui-flex raised direction="column">
