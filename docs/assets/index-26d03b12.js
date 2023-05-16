@@ -265,15 +265,15 @@ var A=Object.defineProperty;var N=(o,r,t)=>r in o?A(o,r,{enumerable:!0,configura
     color: var(--text-color-disabled);
   }
 
-  input:enabled:invalid {
+  input:enabled:invalid:enabled:not(:focus) {
     border: var(--border-width) solid var(--warning-color);
   }
 
-  input[variant="error"]:enabled {
+  input[variant="error"]:enabled:enabled:not(:focus) {
     border: var(--border-width) solid var(--error-color);
   }
 
-  input[variant="success"]:enabled {
+  input[variant="success"]:enabled:not(:focus) {
     border: var(--border-width) solid var(--success-color);
   }
 
@@ -337,7 +337,7 @@ var A=Object.defineProperty;var N=(o,r,t)=>r in o?A(o,r,{enumerable:!0,configura
 <label></label>
 <input />
 <p id="message"></p>
-`,y=document.createElement("template");y.innerHTML=_;class q extends d{constructor(){super(y)}static get observedAttributes(){return["class","label","name","disabled","type","message","readonly"]}get classes(){var r;return((r=this.getAttribute("class"))==null?void 0:r.split(","))||[]}get type(){return this.localName}update(){super.update(),this.classes.forEach(r=>this.inputNode.classList.add(r)),this.labelNode.textContent=this.label,this.name&&(this.labelNode.setAttribute("for",this.name),this.inputNode.setAttribute("name",this.name)),this.forwardAttribute("placeholder",this.inputNode),this.forwardAttribute("disabled",this.inputNode),this.forwardAttribute("readonly",this.inputNode),this.forwardAttribute("type",this.inputNode),this.forwardAttribute("variant",this.inputNode)}}const T=`<style>
+`,f=document.createElement("template");f.innerHTML=_;class q extends d{constructor(){super(f)}static get observedAttributes(){return["class","label","name","disabled","type","message","readonly"]}get classes(){var r;return((r=this.getAttribute("class"))==null?void 0:r.split(","))||[]}get type(){return this.localName}update(){super.update(),this.classes.forEach(r=>this.inputNode.classList.add(r)),this.labelNode.textContent=this.label,this.name&&(this.labelNode.setAttribute("for",this.name),this.inputNode.setAttribute("name",this.name)),this.forwardAttribute("placeholder",this.inputNode),this.forwardAttribute("disabled",this.inputNode),this.forwardAttribute("readonly",this.inputNode),this.forwardAttribute("type",this.inputNode),this.forwardAttribute("variant",this.inputNode)}}const T=`<style>
   :host {
     --input-focused-border-color: var(--primary-color);
     --font-size: var(--font-size);
@@ -387,7 +387,10 @@ var A=Object.defineProperty;var N=(o,r,t)=>r in o?A(o,r,{enumerable:!0,configura
 
   input {
     transition: background-color ease-in-out var(--transition-base),
-      border-color ease-in-out var(--transition-base);
+      border-color ease-in-out var(--transition-base),
+      outline ease-in-out var(--transition-base);
+    outline-offset: var(--focus-outline-offset);
+    outline: var(--focus-outline-inactive);
 
     border-radius: 16px;
   }
@@ -428,6 +431,10 @@ var A=Object.defineProperty;var N=(o,r,t)=>r in o?A(o,r,{enumerable:!0,configura
     background: var(--enabled-thumb-color);
     cursor: default;
     pointer-events: none;
+  }
+
+  input:disabled {
+    --active-background: var(--inactive-background);
   }
 
   input:disabled::-webkit-slider-thumb {
@@ -519,24 +526,31 @@ var A=Object.defineProperty;var N=(o,r,t)=>r in o?A(o,r,{enumerable:!0,configura
   }
 
   #tooltip {
+    transition: opacity ease-in-out var(--transition-base);
+  }
+
+  #tooltip {
     opacity: var(--tooltip-opacity);
     position: absolute;
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 0.75rem;
     border-radius: 1.5rem;
-    top: -1rem;
-    left: 50%;
-    margin-left: -0.75rem;
-    margin-top: -1.5rem;
+    min-width: min-content;
+
+    max-width: min-content;
+    top: -2rem;
+    left: 0;
+    right: 0;
+    transform: translateX(-50%);
     color: var(--background-color);
     background-color: var(--grey-shade-2);
   }
 
   .tooltip-aligner {
     position: absolute;
-    margin-left: 2.25rem;
-    margin-right: 2.25rem;
-    width: calc(100% - 3 * var(--component-padding) - (2 * 2.25rem));
+    margin-left: 2.75rem;
+    margin-right: 2.75rem;
+    width: calc(100% - 5.5rem);
   }
 
   div > input {
@@ -561,7 +575,7 @@ var A=Object.defineProperty;var N=(o,r,t)=>r in o?A(o,r,{enumerable:!0,configura
   </div>
 </div>
 <p id="message"></p>
-`,f=document.createElement("template");f.innerHTML=T;const b=(o,r,t)=>(t-o)/(r-o)*100,h=o=>`linear-gradient(to right, var(--active-background) ${o}%, var(--inactive-background) ${o}%)`;class w extends d{constructor(){super(f);a(this,"updateProgress",t=>{if(this.readonly)return;const n=t.target,e=Number(n.value),i=b(this.min,this.max,e);this.inputNode.style.background=h(i);const s=this.root.querySelector("#tooltip");s.style.left=`${i}%`,s.textContent=e.toString()});const t=this.getAttribute("value"),n=Number(t),e=t!==null&&typeof n=="number"?n:(this.max-this.min)/2+this.min,i=b(this.min,this.max,e);this.inputNode.setAttribute("min",this.min.toString()),this.inputNode.setAttribute("max",this.max.toString()),this.inputNode.setAttribute("value",e.toString()),this.inputNode.style.background=h(i);const s=this.root.querySelector("#tooltip");s.style.left=`${i}%`,s.textContent=e.toString()}static get observedAttributes(){return["label","disabled","readonly","variant","min","max","step"]}get min(){const t=this.getAttribute("min"),n=Number(t);return t!==null&&typeof n=="number"?n:0}get max(){const t=this.getAttribute("max"),n=Number(t);return t!==null&&typeof n=="number"?n:100}connectedCallback(){super.connectedCallback(),this.inputNode.addEventListener("input",this.updateProgress)}disconnectedCallback(){this.inputNode.removeEventListener("input",this.updateProgress)}update(){super.update(),this.name&&(this.labelNode.setAttribute("for",this.name),this.inputNode.setAttribute("name",this.name)),this.labelNode.textContent=this.label,this.forwardAttribute("step",this.inputNode),this.inputNode.setAttribute("min",this.min.toString()),this.inputNode.setAttribute("max",this.max.toString()),this.forwardAttribute("disabled",this.inputNode),this.forwardAttribute("variant",this.inputNode);const[t,n]=this.root.querySelectorAll("span");t.textContent=this.min.toString(),n.textContent=this.max.toString()}}a(w,"formAssociated",!0);const V=`.__wui-raised {
+`,y=document.createElement("template");y.innerHTML=T;const b=(o,r,t)=>(t-o)/(r-o)*100,h=o=>`linear-gradient(to right, var(--active-background) ${o}%, var(--inactive-background) ${o}%)`;class w extends d{constructor(){super(y);a(this,"updateProgress",t=>{if(this.readonly)return;const n=t.target,e=Number(n.value),i=b(this.min,this.max,e);this.inputNode.style.background=h(i);const s=this.root.querySelector("#tooltip");s.style.left=`${i}%`,s.textContent=e.toString()});const t=this.getAttribute("value"),n=Number(t),e=t!==null&&typeof n=="number"?n:(this.max-this.min)/2+this.min,i=b(this.min,this.max,e);this.inputNode.setAttribute("min",this.min.toString()),this.inputNode.setAttribute("max",this.max.toString()),this.inputNode.setAttribute("value",e.toString()),this.inputNode.style.background=h(i);const s=this.root.querySelector("#tooltip");s.style.left=`${i}%`,s.textContent=e.toString()}static get observedAttributes(){return["label","disabled","readonly","variant","min","max","step"]}get min(){const t=this.getAttribute("min"),n=Number(t);return t!==null&&typeof n=="number"?n:0}get max(){const t=this.getAttribute("max"),n=Number(t);return t!==null&&typeof n=="number"?n:100}connectedCallback(){super.connectedCallback(),this.inputNode.addEventListener("input",this.updateProgress)}disconnectedCallback(){this.inputNode.removeEventListener("input",this.updateProgress)}update(){super.update(),this.name&&(this.labelNode.setAttribute("for",this.name),this.inputNode.setAttribute("name",this.name)),this.labelNode.textContent=this.label,this.forwardAttribute("step",this.inputNode),this.inputNode.setAttribute("min",this.min.toString()),this.inputNode.setAttribute("max",this.max.toString()),this.forwardAttribute("disabled",this.inputNode),this.forwardAttribute("variant",this.inputNode);const[t,n]=this.root.querySelectorAll("span");t.textContent=this.min.toString(),n.textContent=this.max.toString()}}a(w,"formAssociated",!0);const V=`.__wui-raised {
     padding: var(--content-panel-padding);
     margin: var(--content-panel-margin);
   
@@ -598,4 +612,4 @@ var A=Object.defineProperty;var N=(o,r,t)=>r in o?A(o,r,{enumerable:!0,configura
       }
     </style>
       <${r}><slot>Foo</slot></${r}>
-    `,[r,t]}),F=Object.fromEntries(O),x=document.createElement("template");x.innerHTML=I;const j={...F,p:x};class c extends l{constructor(t){super(j[t]);a(this,"tag");this.tag=this.root.querySelector(t)}static get observedAttributes(){return["underline","color"]}get underline(){return this.getAttribute("underline")===""}get color(){return this.getAttribute("color")}update(){if(super.update(),this.underline?(this.tag.style.setProperty("--border-width","var(--border-width-underline)"),this.tag.style.setProperty("--padding-bottom","var(--border-width-underline)")):this.tag.style.setProperty("--border-width","0"),this.color){const t=this.color,n=E.includes(t)?`var(--${t}-color)`:t;this.tag.style.setProperty("--font-color",n)}}}class D extends c{constructor(){super("h1")}}class K extends c{constructor(){super("h2")}}class G extends c{constructor(){super("h3")}}class R extends c{constructor(){super("h4")}}class J extends c{constructor(){super("h5"),this.tag.style.setProperty("text-transform","uppercase")}}class Q extends c{constructor(){super("p");a(this,"pNode");this.pNode=this.root.querySelector("p")}get small(){return this.getBoolean("small")}static get observedAttributes(){return["small"]}update(){super.update(),this.small?this.pNode.style.setProperty("--font-size",`${u.small}rem`):this.pNode.style.setProperty("--font-size",`${u.paragraph}rem`)}}const k=document.createElement("style");k.textContent=V;document.head.append(k);customElements.define("wui-a",P);customElements.define("wui-button",z);customElements.define("wui-flex",L);customElements.define("wui-input",q);customElements.define("wui-icon",H);customElements.define("wui-h1",D);customElements.define("wui-h2",K);customElements.define("wui-h3",G);customElements.define("wui-h4",R);customElements.define("wui-h5",J);customElements.define("wui-p",Q);customElements.define("wui-slider",w);
+    `,[r,t]}),F=Object.fromEntries(O),x=document.createElement("template");x.innerHTML=I;const j={...F,p:x};class c extends l{constructor(t){super(j[t]);a(this,"tag");this.tag=this.root.querySelector(t)}static get observedAttributes(){return["underline","color"]}get underline(){return this.getAttribute("underline")===""}get color(){return this.getAttribute("color")}update(){if(super.update(),this.underline?(this.tag.style.setProperty("--border-width","var(--border-width-underline)"),this.tag.style.setProperty("--padding-bottom","var(--border-width-underline)")):this.tag.style.setProperty("--border-width","0"),this.color){const t=this.color,n=E.includes(t)?`var(--${t}-color)`:t;this.tag.style.setProperty("--font-color",n)}}}class D extends c{constructor(){super("h1")}}class K extends c{constructor(){super("h2")}}class G extends c{constructor(){super("h3")}}class R extends c{constructor(){super("h4")}}class X extends c{constructor(){super("h5"),this.tag.style.setProperty("text-transform","uppercase")}}class J extends c{constructor(){super("p");a(this,"pNode");this.pNode=this.root.querySelector("p")}get small(){return this.getBoolean("small")}static get observedAttributes(){return["small"]}update(){super.update(),this.small?this.pNode.style.setProperty("--font-size",`${u.small}rem`):this.pNode.style.setProperty("--font-size",`${u.paragraph}rem`)}}const k=document.createElement("style");k.textContent=V;document.head.append(k);customElements.define("wui-a",P);customElements.define("wui-button",z);customElements.define("wui-flex",L);customElements.define("wui-input",q);customElements.define("wui-icon",H);customElements.define("wui-h1",D);customElements.define("wui-h2",K);customElements.define("wui-h3",G);customElements.define("wui-h4",R);customElements.define("wui-h5",X);customElements.define("wui-p",J);customElements.define("wui-slider",w);

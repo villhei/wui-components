@@ -4,6 +4,8 @@ html {
   --theme-line-height: 1.33;
   --border-width: 0.125rem;
   --focus-outline: var(--border-width) solid var(--primary-color);
+  --focus-outline-inactive: var(--border-width) solid transparent;
+
   --focus-outline-offset: var(--border-width);
   --component-padding: 0.25rem 0.25rem;
   --border-width-underline: 0.25rem;

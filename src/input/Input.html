@@ -53,15 +53,15 @@
     color: var(--text-color-disabled);
   }
 
-  input:enabled:invalid {
+  input:enabled:invalid:enabled:not(:focus) {
     border: var(--border-width) solid var(--warning-color);
   }
 
-  input[variant="error"]:enabled {
+  input[variant="error"]:enabled:enabled:not(:focus) {
     border: var(--border-width) solid var(--error-color);
   }
 
-  input[variant="success"]:enabled {
+  input[variant="success"]:enabled:not(:focus) {
     border: var(--border-width) solid var(--success-color);
   }
 

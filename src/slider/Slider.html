@@ -48,7 +48,10 @@
 
   input {
     transition: background-color ease-in-out var(--transition-base),
-      border-color ease-in-out var(--transition-base);
+      border-color ease-in-out var(--transition-base),
+      outline ease-in-out var(--transition-base);
+    outline-offset: var(--focus-outline-offset);
+    outline: var(--focus-outline-inactive);
 
     border-radius: 16px;
   }
@@ -89,6 +92,10 @@
     background: var(--enabled-thumb-color);
     cursor: default;
     pointer-events: none;
+  }
+
+  input:disabled {
+    --active-background: var(--inactive-background);
   }
 
   input:disabled::-webkit-slider-thumb {
@@ -180,24 +187,31 @@
   }
 
   #tooltip {
+    transition: opacity ease-in-out var(--transition-base);
+  }
+
+  #tooltip {
     opacity: var(--tooltip-opacity);
     position: absolute;
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 0.75rem;
     border-radius: 1.5rem;
-    top: -1rem;
-    left: 50%;
-    margin-left: -0.75rem;
-    margin-top: -1.5rem;
+    min-width: min-content;
+
+    max-width: min-content;
+    top: -2rem;
+    left: 0;
+    right: 0;
+    transform: translateX(-50%);
     color: var(--background-color);
     background-color: var(--grey-shade-2);
   }
 
   .tooltip-aligner {
     position: absolute;
-    margin-left: 2.25rem;
-    margin-right: 2.25rem;
-    width: calc(100% - 3 * var(--component-padding) - (2 * 2.25rem));
+    margin-left: 2.75rem;
+    margin-right: 2.75rem;
+    width: calc(100% - 5.5rem);
   }
 
   div > input {
