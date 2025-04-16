@@ -7,6 +7,11 @@ import { Slider } from "./slider";
 import coreCSS from "./core/core.css?raw";
 import { H1, H2, H3, H4, H5, Paragraph } from "./typography";
 
+/**
+ * This module only has side-effects, so it doesn't export anything.
+ * It registers custom elements and appends the core CSS to the document head.
+ **/
+
 const style = document.createElement("style");
 style.textContent = coreCSS;
 document.head.append(style);
