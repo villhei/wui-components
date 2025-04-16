@@ -1,0 +1,71 @@
+<style>
+  :host {
+    --checkbox-size: 1.25rem;
+    --checkbox-border-width: 0.125rem;
+    --checkbox-border-color: var(--grey-shade-4);
+    --checkbox-background: var(--background-color);
+    --checkbox-checked-background: var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    padding: var(--component-padding);
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  input {
+    appearance: none;
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
+    border: var(--checkbox-border-width) solid var(--checkbox-border-color);
+    border-radius: var(--border-radius);
+    margin: 0;
+    background: var(--checkbox-background);
+    cursor: pointer;
+    transition: background-color ease-in-out var(--transition-base),
+      border-color ease-in-out var(--transition-base);
+  }
+
+  input:checked {
+    background: var(--checkbox-checked-background);
+    border-color: var(--checkbox-checked-background);
+  }
+
+  input:checked::after {
+    content: "";
+    display: block;
+    width: 25%;
+    height: 50%;
+    border: solid var(--background-color);
+    border-width: 0 0.125rem 0.125rem 0;
+    transform: translate(85%, 15%) rotate(45deg);
+  }
+
+  input:disabled {
+    cursor: not-allowed;
+    opacity: var(--disabled-background-opacity);
+  }
+
+  input:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+  }
+
+  .label {
+    margin-left: 0.5rem;
+    color: var(--text-color);
+  }
+
+  label:has(input:disabled) .label {
+    color: var(--text-color-disabled);
+    cursor: not-allowed;
+  }
+</style>
+<label>
+  <input type="checkbox" />
+  <span class="label"><slot></slot></span>
+</label>

@@ -1,5 +1,6 @@
 import { Anchor } from "./anchor";
 import { Button } from "./button";
+import { Checkbox } from "./checkbox";
 import { Flex } from "./flex";
 import { Icon } from "./icon";
 import { Input } from "./input";
@@ -13,6 +14,7 @@ document.head.append(style);
 
 customElements.define("wui-a", Anchor);
 customElements.define("wui-button", Button);
+customElements.define("wui-checkbox", Checkbox);
 customElements.define("wui-flex", Flex);
 customElements.define("wui-input", Input);
 customElements.define("wui-icon", Icon);
